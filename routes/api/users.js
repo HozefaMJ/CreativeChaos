@@ -4,6 +4,7 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const keys = require("../../config/keys");
+
 // Importing Validators
 const validateRegisterInput = require("../validation/register");
 const validateLoginInput = require("../validation/login");
@@ -115,13 +116,13 @@ router.post("/login", (req, res) => {
 // @access Private
 router.get(
   "/current",
-  passport.authenticate("jwt", { session: false }),
+  passport.authenticate("user", { session: false }),
   (req, res) => {
     res.json({
       id: req.user.id,
       name: req.user.name,
       email: req.user.email,
-      data: req.user.date,
+      date: req.user.date,
     });
   }
 );
