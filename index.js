@@ -6,7 +6,8 @@ const passport = require("passport");
 const users = require("./routes/api/users");
 const authors = require("./routes/api/authors");
 const posts = require("./routes/api/posts");
-const profiles = require("./routes/api/profiles");
+const profileUser = require("./routes/api/profilesUser");
+const profileAuthor = require("./routes/api/profilesAuthor");
 
 const app = express();
 
@@ -41,7 +42,8 @@ app.get("/", (req, res) => {
 app.use("/api/users", users);
 app.use("/api/authors", authors);
 app.use("/api/posts", posts);
-app.use("/api/profiles", profiles);
+app.use("/api/profile/User", profileUser);
+app.use("/api/profile/Author", profileAuthor);
 
 const port = process.env.PORT || 5000;
 

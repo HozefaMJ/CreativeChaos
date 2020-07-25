@@ -5,7 +5,7 @@ const router = express.Router();
 // @desc Testing route for the profiles
 // @access Public
 router.get("/test", (req, res) => {
-  res.json({ msg: "Testing Profiles Routes" });
+  res.json({ msg: "Testing Profiles Routes for authors" });
 });
 
 module.exports = router;
