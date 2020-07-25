@@ -13,7 +13,7 @@ const Users = require("../../models/Users");
 
 // Set Storage
 const storage = multer.diskStorage({
-  destination: "./public/uploads/",
+  destination: "./public/uploads/users/",
   filename: function (req, file, cb) {
     cb(
       null,
