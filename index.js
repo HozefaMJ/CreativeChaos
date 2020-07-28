@@ -5,7 +5,8 @@ const passport = require("passport");
 // Routes
 const users = require("./routes/api/users");
 const authors = require("./routes/api/authors");
-const posts = require("./routes/api/posts");
+const postsNews = require("./routes/api/postsNews");
+const postsUsers = require("./routes/api/postsUsers");
 const profileUser = require("./routes/api/profilesUser");
 const profileAuthor = require("./routes/api/profilesAuthor");
 
@@ -41,7 +42,8 @@ app.get("/", (req, res) => {
 
 app.use("/api/users", users);
 app.use("/api/authors", authors);
-app.use("/api/posts", posts);
+app.use("/api/posts/news", postsNews);
+app.use("/api/posts/users", postsUsers);
 app.use("/api/profile/User", profileUser);
 app.use("/api/profile/Author", profileAuthor);
 
