@@ -13,11 +13,9 @@ const PostsNews = require("../../models/PostsNews");
 // Importing Validators
 const validatePostInput = require("../validation/post");
 const validateCommentInput = require("../validation/comment");
-const { profile } = require("console");
-
 // Set Storage
 const storage = multer.diskStorage({
-  destination: "./public/uploads/new/Posts/",
+  destination: "./public/uploads/Posts/News/",
   filename: function (req, file, cb) {
     cb(
       null,
@@ -230,7 +228,7 @@ router.post(
 // @access Private
 router.delete(
   "/comment/:id/:comment_id",
-  passport.authenticate("author", { session: false }),
+  passport.authenticate(["author", "user"], { session: false }),
   (req, res) => {
     PostsNews.findById(req.params.id)
       .then((post) => {
